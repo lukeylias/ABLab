@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A/B Testing Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div class="container">
+      <header>
+        <div class="header-content">
+          <div class="header-image">
+            <img src="assets/193.Chart.png" alt="A/B Testing Chart" />
+          </div>
+          <div class="header-text">
+            <h1>A/B Lab</h1>
+            <p>A comprehensive checklist for running A/B tests</p>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content">
+        <!-- Section 1: Ideation and Planning -->
+        <section class="main-section" data-section="ideation">
+          <div class="section-header">
+            <span class="material-icons-round section-icon">lightbulb</span>
+            <h2>Ideation and Planning</h2>
+            <span class="material-icons-round expand-icon">expand_more</span>
+          </div>
+          <div class="section-content">
+            <div class="row" data-row="identify-problem">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">search</span>
+                <h3>Identify Problem/Opportunity</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <div class="info-banner">
+                  <span class="material-icons-round info-banner-icon"
+                    >info</span
+                  >
+                  <div class="info-banner-content">
+                    <p>
+                      <strong>Pro Tip:</strong> The best experiment ideas
+                      combine quantitative data with qualitative insights. Start
+                      with data to identify problems, then use research to
+                      understand the "why" behind user behavior.
+                    </p>
+                    <p>
+                      <a
+                        href="https://contentsquare.com"
+                        class="info-banner-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Learn more about Contentsquare analytics →</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <h4>Where do experiment ideas come from?</h4>
+                <p>
+                  Experiment ideas are the fuel for our optimisation efforts.
+                  They can stem from various sources, each providing unique
+                  insights into user behavior, business needs, and potential
+                  improvements.
+                </p>
+
+                <h5><strong>Data Analysis</strong></h5>
+                <p>
+                  Dive into quantitative data from tools like Google Analytics
+                  or Contentsquare to uncover areas of friction, unexpected user
+                  behavior, or underperforming sections.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    High bounce rates on key pages (e.g., your homepage has a
+                    52.8% bounce rate)
+                  </li>
+                  <li>
+                    Low scroll rates (e.g., only 27.3% of users scroll below the
+                    fold on your homepage)
+                  </li>
+                  <li>
+                    Unexpected drop-offs in funnels (e.g., 14.9% conversion from
+                    Home to Quote ARHI Welcome)
+                  </li>
+                </ul>
+                <p>
+                  <strong>Actionable Questions:</strong> Where are users getting
+                  stuck? What are they looking for but not finding? Are there
+                  any significant deviations from expected user flows?
+                </p>
+
+                <h5><strong>User Research &amp; Feedback</strong></h5>
+                <p>
+                  Leverage qualitative insights to understand the "why" behind
+                  user behavior. This includes direct feedback and observations.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>User interviews</li>
+                  <li>Usability testing sessions</li>
+                  <li>Customer support inquiries</li>
+                  <li>Direct feedback forms and surveys</li>
+                </ul>
+                <p>
+                  <strong>Actionable Questions:</strong> What are users
+                  explicitly saying about their pain points or desires? What are
+                  their unmet needs or confusions?
+                </p>
+
+                <h5><strong>UX/UI Audits &amp; Best Practices</strong></h5>
+                <p>
+                  Conduct an expert review of your current interface, comparing
+                  it against established usability heuristics and industry best
+                  practices.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>Identifying cluttered layouts</li>
+                  <li>Unclear calls-to-action</li>
+                  <li>Inconsistent design elements</li>
+                  <li>Non-responsive sections</li>
+                </ul>
+                <p>
+                  <strong>Actionable Questions:</strong> Is our design intuitive
+                  and easy to use? Are we following modern web standards?
+                </p>
+
+                <h5><strong>Competitive Analysis</strong></h5>
+                <p>
+                  Study what direct and indirect competitors are doing well (or
+                  poorly) on their sites and in their user experiences.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    Observing new features, design patterns, or messaging
+                    strategies adopted by industry leaders
+                  </li>
+                </ul>
+                <p>
+                  <strong>Actionable Questions:</strong> What competitive
+                  advantages or disadvantages do we have in our user experience?
+                  Are there successful patterns we could adapt or improve upon?
+                </p>
+
+                <h5>
+                  <strong>Stakeholder Requests &amp; Business Goals</strong>
+                </h5>
+                <p>
+                  Translate broader business objectives and specific requests
+                  from internal teams (e.g., Marketing, Product, Sales) into
+                  testable opportunities. Ensure the problem or opportunity is
+                  clearly defined.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    A request to drive more sign-ups for a specific product
+                  </li>
+                  <li>To improve engagement with a new feature</li>
+                </ul>
+                <p>
+                  <strong>Actionable Questions:</strong> What are the key
+                  business metrics we need to move? Is the problem or
+                  opportunity presented by the stakeholder clear and
+                  quantifiable?
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="brainstorm">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">psychology</span>
+                <h3>Brainstorm Solutions</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Generate multiple potential solutions to address the
+                  identified problem or opportunity.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="validate-data">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">fact_check</span>
+                <h3>Validate Current Data</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Ensure your baseline data is accurate and reliable before
+                  proceeding with the experiment.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="hypothesis">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">science</span>
+                <h3>Formulate Hypothesis</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Create a clear, testable hypothesis that predicts the outcome
+                  of your experiment.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="primary-metric">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">flag</span>
+                <h3>Define Primary Metric</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Choose the single most important metric that will determine
+                  the success of your experiment.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="secondary-metrics">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">analytics</span>
+                <h3>Define Secondary Metrics</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Identify additional metrics to monitor for potential side
+                  effects or broader impact.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="traffic-duration">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">schedule</span>
+                <h3>Calculate Traffic & Duration</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Determine the required sample size and experiment duration for
+                  statistical significance.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="design-assets">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">palette</span>
+                <h3>Gather Design Assets</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Collect all necessary design materials and variations for your
+                  experiment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Experiment Setup -->
+        <section class="main-section" data-section="setup">
+          <div class="section-header">
+            <span class="material-icons-round section-icon">settings</span>
+            <h2>Experiment Setup</h2>
+            <span class="material-icons-round expand-icon">expand_more</span>
+          </div>
+          <div class="section-content">
+            <div class="row" data-row="create-experiment">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">add_circle</span>
+                <h3>Create Experiment</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>Set up the experiment framework in your testing platform.</p>
+              </div>
+            </div>
+
+            <div class="row" data-row="implement-variations">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">code</span>
+                <h3>Implement Variations</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Code and implement all experiment variations according to your
+                  design specifications.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="page-targeting">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">gps_fixed</span>
+                <h3>Configure Page Targeting</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Set up proper page targeting rules to ensure the experiment
+                  runs on the correct pages.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="audience-traffic">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">people</span>
+                <h3>Set Audience & Traffic</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Define your target audience and configure traffic allocation
+                  between variations.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="add-metrics">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">track_changes</span>
+                <h3>Add Metrics/Goals</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Configure all primary and secondary metrics in your testing
+                  platform.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="qa">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">bug_report</span>
+                <h3>Thorough QA</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Conduct comprehensive quality assurance testing across all
+                  variations and devices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Launch & Monitoring -->
+        <section class="main-section" data-section="launch">
+          <div class="section-header">
+            <span class="material-icons-round section-icon">rocket_launch</span>
+            <h2>Launch and Monitoring</h2>
+            <span class="material-icons-round expand-icon">expand_more</span>
+          </div>
+          <div class="section-content">
+            <div class="row" data-row="launch-experiment">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">play_arrow</span>
+                <h3>Launch Experiment</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Start your experiment and ensure it's running correctly across
+                  all targeted pages.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="monitor-performance">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">monitor</span>
+                <h3>Monitor Performance</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Regularly check experiment performance and technical metrics
+                  for any issues.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="avoid-peeking">
+              <div class="row-header">
+                <span class="material-icons-round row-icon"
+                  >visibility_off</span
+                >
+                <h3>Avoid Peeking</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Resist the urge to check results early. Wait for statistical
+                  significance and planned duration.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Analysis & Action -->
+        <section class="main-section" data-section="analysis">
+          <div class="section-header">
+            <span class="material-icons-round section-icon">assessment</span>
+            <h2>Analysis and Action</h2>
+            <span class="material-icons-round expand-icon">expand_more</span>
+          </div>
+          <div class="section-content">
+            <div class="row" data-row="analyze-results">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">bar_chart</span>
+                <h3>Analyze Results</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Examine all metrics, statistical significance, and confidence
+                  intervals thoroughly.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="interpret-findings">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">insights</span>
+                <h3>Interpret Findings</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Draw meaningful conclusions from your data and understand the
+                  broader implications.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="make-decision">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">gavel</span>
+                <h3>Make Decision</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Decide whether to implement the winning variation, run
+                  additional tests, or abandon the approach.
+                </p>
+              </div>
+            </div>
+
+            <div class="row" data-row="document-learnings">
+              <div class="row-header">
+                <span class="material-icons-round row-icon">library_books</span>
+                <h3>Document Learnings</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <p>
+                  Record your findings, insights, and recommendations for future
+                  reference and team learning.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
