@@ -3,6 +3,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   initializeExpandableElements();
   initializeKeyboardNavigation();
+  initializeModals();
+  initializeGuidanceToggle();
 });
 
 /**
@@ -83,19 +85,6 @@ function toggleSection(section) {
     // Expand section
     section.classList.add("expanded");
     header.setAttribute("aria-expanded", "true");
-
-    // Smooth scroll to section if it's below the fold
-    setTimeout(() => {
-      const rect = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      if (rect.top < 0 || rect.bottom > viewportHeight) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 300);
   }
 }
 
@@ -121,19 +110,6 @@ function toggleRow(row) {
     if (parentSection && !parentSection.classList.contains("expanded")) {
       toggleSection(parentSection);
     }
-
-    // Smooth scroll to row if needed
-    setTimeout(() => {
-      const rect = row.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      if (rect.bottom > viewportHeight - 50) {
-        row.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      }
-    }, 300);
   }
 }
 
@@ -342,6 +318,287 @@ window.addEventListener("load", function () {
   }
 });
 
+/**
+ * Initialize guidance level toggle functionality
+ */
+function initializeGuidanceToggle() {
+  const guidanceRadios = document.querySelectorAll('input[name="guidance"]');
+
+  // Add event listeners to radio buttons
+  guidanceRadios.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      handleGuidanceChange(this.value);
+    });
+  });
+
+  // Load saved preference and set appropriate radio button
+  const savedPreference = loadGuidancePreference();
+  const targetRadio = document.querySelector(
+    `input[name="guidance"][value="${savedPreference}"]`
+  );
+
+  if (targetRadio) {
+    targetRadio.checked = true;
+    handleGuidanceChange(savedPreference);
+  } else {
+    // Fallback to checked radio button
+    const checkedRadio = document.querySelector(
+      'input[name="guidance"]:checked'
+    );
+    if (checkedRadio) {
+      handleGuidanceChange(checkedRadio.value);
+    }
+  }
+}
+
+/**
+ * Handle guidance level change
+ * @param {string} guidanceLevel - The selected guidance level ('basic' or 'technical')
+ */
+function handleGuidanceChange(guidanceLevel) {
+  const body = document.body;
+  const technicalRows = document.querySelectorAll(".technical-row");
+  const basicRows = document.querySelectorAll(".basic-row");
+
+  if (guidanceLevel === "technical") {
+    // Show in-depth content, hide basic content
+    body.classList.add("show-technical");
+
+    // Collapse any expanded basic rows that are now being hidden
+    basicRows.forEach((row) => {
+      if (row.classList.contains("expanded")) {
+        row.classList.remove("expanded");
+        const header = row.querySelector(".row-header");
+        if (header) {
+          header.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    // Announce change to screen readers
+    announceGuidanceChange(
+      "In-depth guidance enabled. Advanced content is now visible, basic content is hidden."
+    );
+
+    // Save preference
+    saveGuidancePreference("technical");
+  } else {
+    // Show basic content, hide in-depth content
+    body.classList.remove("show-technical");
+
+    // Collapse any expanded technical rows that are now being hidden
+    technicalRows.forEach((row) => {
+      if (row.classList.contains("expanded")) {
+        row.classList.remove("expanded");
+        const header = row.querySelector(".row-header");
+        if (header) {
+          header.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    // Announce change to screen readers
+    announceGuidanceChange(
+      "Basic guidance enabled. Essential content is now visible, advanced content is hidden."
+    );
+
+    // Save preference
+    saveGuidancePreference("basic");
+  }
+}
+
+/**
+ * Announce guidance change to screen readers
+ * @param {string} message - The message to announce
+ */
+function announceGuidanceChange(message) {
+  // Create or update live region for screen reader announcements
+  let announcer = document.getElementById("guidance-announcer");
+  if (!announcer) {
+    announcer = document.createElement("div");
+    announcer.id = "guidance-announcer";
+    announcer.setAttribute("aria-live", "polite");
+    announcer.setAttribute("aria-atomic", "true");
+    announcer.style.position = "absolute";
+    announcer.style.left = "-10000px";
+    announcer.style.width = "1px";
+    announcer.style.height = "1px";
+    announcer.style.overflow = "hidden";
+    document.body.appendChild(announcer);
+  }
+
+  announcer.textContent = message;
+}
+
+/**
+ * Save guidance preference to localStorage
+ * @param {string} preference - The guidance preference to save
+ */
+function saveGuidancePreference(preference) {
+  try {
+    localStorage.setItem("abTestingGuideGuidance", preference);
+  } catch (e) {
+    console.warn("Could not save guidance preference to localStorage:", e);
+  }
+}
+
+/**
+ * Load guidance preference from localStorage
+ * @returns {string} The saved guidance preference or default 'basic'
+ */
+function loadGuidancePreference() {
+  try {
+    return localStorage.getItem("abTestingGuideGuidance") || "basic";
+  } catch (e) {
+    console.warn("Could not load guidance preference from localStorage:", e);
+    return "basic";
+  }
+}
+
+/**
+ * Initialize modal functionality
+ */
+function initializeModals() {
+  const modalTriggers = document.querySelectorAll("[data-modal]");
+  const modalOverlays = document.querySelectorAll(".modal-overlay");
+  const modalCloses = document.querySelectorAll(".modal-close");
+
+  // Open modal when trigger is clicked
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      const modalId = this.getAttribute("data-modal");
+      openModal(modalId);
+    });
+  });
+
+  // Close modal when close button is clicked
+  modalCloses.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", function () {
+      const modal = this.closest(".modal-overlay");
+      closeModal(modal.id);
+    });
+  });
+
+  // Close modal when clicking outside
+  modalOverlays.forEach((overlay) => {
+    overlay.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeModal(this.id);
+      }
+    });
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      const activeModal = document.querySelector(".modal-overlay.active");
+      if (activeModal) {
+        closeModal(activeModal.id);
+      }
+    }
+  });
+}
+
+/**
+ * Open modal by ID
+ * @param {string} modalId - The ID of the modal to open
+ */
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  // Store the currently focused element
+  modal.previousFocus = document.activeElement;
+
+  // Show modal
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+
+  // Prevent body scroll
+  document.body.style.overflow = "hidden";
+
+  // Focus the close button for accessibility
+  setTimeout(() => {
+    const closeButton = modal.querySelector(".modal-close");
+    if (closeButton) {
+      closeButton.focus();
+    }
+  }, 100);
+
+  // Trap focus within modal
+  trapFocus(modal);
+}
+
+/**
+ * Close modal by ID
+ * @param {string} modalId - The ID of the modal to close
+ */
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  // Hide modal
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+
+  // Restore body scroll
+  document.body.style.overflow = "";
+
+  // Return focus to the trigger element
+  if (modal.previousFocus) {
+    modal.previousFocus.focus();
+    modal.previousFocus = null;
+  }
+
+  // Remove focus trap
+  removeFocusTrap(modal);
+}
+
+/**
+ * Trap focus within modal
+ * @param {Element} modal - The modal element
+ */
+function trapFocus(modal) {
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+
+  if (focusableElements.length === 0) return;
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  modal.focusTrapHandler = function (e) {
+    if (e.key === "Tab") {
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    }
+  };
+
+  modal.addEventListener("keydown", modal.focusTrapHandler);
+}
+
+/**
+ * Remove focus trap from modal
+ * @param {Element} modal - The modal element
+ */
+function removeFocusTrap(modal) {
+  if (modal.focusTrapHandler) {
+    modal.removeEventListener("keydown", modal.focusTrapHandler);
+    modal.focusTrapHandler = null;
+  }
+}
+
 // Export functions for potential external use
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
@@ -353,5 +610,10 @@ if (typeof module !== "undefined" && module.exports) {
     restoreState,
     getNextFocusableElement,
     getPreviousFocusableElement,
+    openModal,
+    closeModal,
+    handleGuidanceChange,
+    loadGuidancePreference,
+    saveGuidancePreference,
   };
 }

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link
@@ -31,6 +31,40 @@
         </div>
       </header>
 
+      <div class="radio-group">
+        <div class="label-with-info">
+          <label for="guidance-level">Guidance level</label>
+          <button
+            class="info-icon-btn"
+            aria-label="More information about guidance levels"
+            data-modal="guidance-info"
+          >
+            <span class="material-icons-round">info</span>
+          </button>
+        </div>
+        <div class="radio-options">
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="basic"
+              name="guidance"
+              value="basic"
+              checked
+            />
+            <label for="basic" class="radio-label">Basic</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="technical"
+              name="guidance"
+              value="technical"
+            />
+            <label for="technical" class="radio-label">In-depth</label>
+          </div>
+        </div>
+      </div>
+
       <main id="main-content">
         <!-- Section 1: Ideation and Planning -->
         <section class="main-section" data-section="ideation">
@@ -40,7 +74,42 @@
             <span class="material-icons-round expand-icon">expand_more</span>
           </div>
           <div class="section-content">
-            <div class="row" data-row="identify-problem">
+            <div
+              class="row basic-row"
+              data-row="planning-basics"
+              data-guidance="basic"
+            >
+              <div class="row-header">
+                <span class="material-icons-round row-icon">assignment</span>
+                <h3>Planning Basics</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <h4>Getting Started with A/B Testing</h4>
+                <p>
+                  Learn the fundamentals of planning and setting up successful
+                  A/B tests.
+                </p>
+                <ul>
+                  <li>Understanding what A/B testing is and when to use it</li>
+                  <li>Identifying good opportunities for testing</li>
+                  <li>Setting clear goals and success metrics</li>
+                  <li>Basic planning considerations</li>
+                </ul>
+                <p>
+                  <strong>Next step:</strong> Once you understand the basics,
+                  explore more detailed ideation techniques.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="row technical-row"
+              data-row="identify-problem"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">search</span>
                 <h3>Identify Problem/Opportunity</h3>
@@ -49,6 +118,428 @@
                 >
               </div>
               <div class="row-content">
+                <h4>Summary of AB Tests</h4>
+                <p>
+                  AB testing (also called split testing) is a method of
+                  comparing two or more versions of a webpage, app feature, or
+                  user experience to determine which performs better. By showing
+                  different versions to similar groups of users and measuring
+                  their behaviour, we can make data-driven decisions about what
+                  changes actually improve our key metrics.
+                </p>
+
+                <p><strong>Why AB testing matters:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Removes guesswork</strong> - Instead of debating
+                    opinions, we let user behaviour decide
+                  </li>
+                  <li>
+                    <strong>Reduces risk</strong> - Test changes before fully
+                    committing resources
+                  </li>
+                  <li>
+                    <strong>Builds knowledge</strong> - Each test teaches us
+                    something about our users
+                  </li>
+                  <li>
+                    <strong>Drives growth</strong> - Even small improvements
+                    compound over time
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>The foundation of good testing:</strong> Every
+                  experiment should solve a real problem or capitalise on a
+                  genuine opportunity, backed by data and user insights.
+                </p>
+
+                <hr />
+
+                <h4>Importance of Knowing Business and User Goals</h4>
+                <p>
+                  Before identifying problems to test, you need crystal clarity
+                  on what success looks like for both your business and your
+                  users.
+                </p>
+
+                <p><strong>Business goals to understand:</strong></p>
+                <ul>
+                  <li>
+                    Primary KPIs your team is responsible for (conversion rate,
+                    revenue, sign-ups, etc.)
+                  </li>
+                  <li>
+                    Quarterly/annual targets and how experimentation supports
+                    them
+                  </li>
+                  <li>Resource constraints and timelines</li>
+                  <li>Risk tolerance for different types of changes</li>
+                </ul>
+
+                <p><strong>User goals to understand:</strong></p>
+                <ul>
+                  <li>What users are trying to accomplish on your site/app</li>
+                  <li>Their pain points and frustrations</li>
+                  <li>What motivates their decision-making</li>
+                  <li>How they currently navigate your experience</li>
+                </ul>
+
+                <p><strong>Why this alignment matters:</strong></p>
+                <ul>
+                  <li>
+                    Ensures experiments address meaningful problems, not just
+                    surface-level issues
+                  </li>
+                  <li>Helps prioritise which opportunities to test first</li>
+                  <li>
+                    Creates shared understanding across stakeholders about what
+                    "winning" looks like
+                  </li>
+                  <li>
+                    Prevents testing changes that improve one metric whilst
+                    harming another
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Action step:</strong> Before identifying test
+                  opportunities, document your primary business metric and 2-3
+                  key user goals for the area you're optimising.
+                </p>
+
+                <hr />
+
+                <h4>Large Experiments vs. Smaller Experiments</h4>
+                <p>
+                  One of the most strategic decisions in experimentation is
+                  choosing the scope of your changes. This decision impacts
+                  everything from development resources to how quickly you'll
+                  get results.
+                </p>
+
+                <h5><strong>Large Experiments (Multiple Changes)</strong></h5>
+                <p>
+                  <strong>What they are:</strong> Testing significant changes
+                  that involve multiple elements - full page redesigns, complete
+                  flow overhauls, or major feature additions.
+                </p>
+
+                <p><strong>Advantages:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Faster to statistical significance</strong> - Bigger
+                    changes typically create larger effect sizes
+                  </li>
+                  <li>
+                    <strong>Tests holistic experience</strong> - Captures how
+                    multiple elements work together
+                  </li>
+                  <li>
+                    <strong>Higher potential impact</strong> - Can drive
+                    meaningful business results more quickly
+                  </li>
+                  <li>
+                    <strong>Better for concept validation</strong> - Useful when
+                    testing entirely new approaches
+                  </li>
+                </ul>
+
+                <p><strong>Disadvantages:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Less granular learning</strong> - Can't isolate
+                    which specific element drove the result
+                  </li>
+                  <li>
+                    <strong>Higher development cost</strong> - Requires more
+                    time and resources to build
+                  </li>
+                  <li>
+                    <strong>Harder to iterate</strong> - If it fails, you don't
+                    know what specifically to fix
+                  </li>
+                  <li>
+                    <strong>Higher risk</strong> - More moving parts mean more
+                    potential failure points
+                  </li>
+                </ul>
+
+                <p><strong>When to choose large experiments:</strong></p>
+                <ul>
+                  <li>
+                    You have sufficient traffic to reach significance within a
+                    reasonable timeframe
+                  </li>
+                  <li>
+                    You're testing a fundamentally different approach or concept
+                  </li>
+                  <li>
+                    Development resources are available for bigger changes
+                  </li>
+                  <li>
+                    You need to prove/disprove a major strategic direction
+                  </li>
+                  <li>Small iterative changes haven't moved the needle</li>
+                </ul>
+
+                <h5><strong>Smaller Experiments (Single Changes)</strong></h5>
+                <p>
+                  <strong>What they are:</strong> Testing focused changes to
+                  individual elements - button text, colours, headlines, single
+                  features, or specific copy changes.
+                </p>
+
+                <p><strong>Advantages:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Clear attribution</strong> - You know exactly what
+                    worked or didn't work
+                  </li>
+                  <li>
+                    <strong>Easier to build upon</strong> - Learnings can be
+                    systematically applied elsewhere
+                  </li>
+                  <li>
+                    <strong>Lower development cost</strong> - Quick to implement
+                    and lower risk
+                  </li>
+                  <li>
+                    <strong>Easier iteration</strong> - Clear next steps based
+                    on results
+                  </li>
+                  <li>
+                    <strong>Builds knowledge systematically</strong> - Creates a
+                    library of what works for your users
+                  </li>
+                </ul>
+
+                <p><strong>Disadvantages:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Slower to significance</strong> - Smaller effect
+                    sizes require longer test durations or more traffic
+                  </li>
+                  <li>
+                    <strong>May miss interaction effects</strong> - Elements
+                    might work differently when combined
+                  </li>
+                  <li>
+                    <strong>Potentially lower impact</strong> - Individual
+                    changes might not move business metrics meaningfully
+                  </li>
+                  <li>
+                    <strong>Can be incrementally slow</strong> - Building
+                    meaningful change one small test at a time
+                  </li>
+                </ul>
+
+                <p><strong>When to choose smaller experiments:</strong></p>
+                <ul>
+                  <li>
+                    You have lower traffic volumes (smaller changes are more
+                    realistic to detect)
+                  </li>
+                  <li>
+                    You're building systematic understanding of what drives
+                    conversion
+                  </li>
+                  <li>Development resources are limited</li>
+                  <li>
+                    You're optimising an already well-performing experience
+                  </li>
+                  <li>You want to reduce risk and iterate quickly</li>
+                </ul>
+
+                <h5><strong>Decision Framework</strong></h5>
+                <p>Ask yourself these questions to choose your approach:</p>
+                <ol>
+                  <li>
+                    <strong>Traffic volume:</strong> Can we realistically detect
+                    small changes with our current traffic?
+                  </li>
+                  <li>
+                    <strong>Learning goals:</strong> Do we need to validate a
+                    big concept or understand specific elements?
+                  </li>
+                  <li>
+                    <strong>Development capacity:</strong> What level of change
+                    can we realistically build and maintain?
+                  </li>
+                  <li>
+                    <strong>Business urgency:</strong> Do we need results
+                    quickly or can we build knowledge systematically?
+                  </li>
+                  <li>
+                    <strong>Risk tolerance:</strong> How comfortable are we with
+                    bigger swings vs. safer iterations?
+                  </li>
+                </ol>
+
+                <p>
+                  <strong>Remember:</strong> Neither approach is inherently
+                  better. The best choice depends on your specific situation,
+                  goals, and constraints.
+                </p>
+
+                <hr />
+
+                <h4>Where Do Experiment Ideas Come From?</h4>
+                <p>
+                  Experiment ideas are the fuel for our optimisation efforts.
+                  They can stem from various sources, each providing unique
+                  insights into user behaviour, business needs, and potential
+                  improvements.
+                </p>
+
+                <h5><strong>Data Analysis</strong></h5>
+                <p>
+                  Dive into quantitative data from tools like Google Analytics
+                  or Contentsquare to uncover areas of friction, unexpected user
+                  behaviour, or underperforming sections.
+                </p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    High bounce rates on key pages (e.g., your homepage has a
+                    52.8% bounce rate)
+                  </li>
+                  <li>
+                    Low scroll rates (e.g., only 27.3% of users scroll below the
+                    fold on your homepage)
+                  </li>
+                  <li>
+                    Unexpected drop-offs in funnels (e.g., 14.9% conversion from
+                    Home to Quote ARHI Welcome)
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Actionable Questions:</strong> Where are users getting
+                  stuck? What are they looking for but not finding? Are there
+                  any significant deviations from expected user flows?
+                </p>
+
+                <h5><strong>User Research &amp; Feedback</strong></h5>
+                <p>
+                  Leverage qualitative insights to understand the "why" behind
+                  user behaviour. This includes direct feedback and
+                  observations.
+                </p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>User interviews</li>
+                  <li>Usability testing sessions</li>
+                  <li>Customer support inquiries</li>
+                  <li>Direct feedback forms and surveys</li>
+                </ul>
+
+                <p>
+                  <strong>Actionable Questions:</strong> What are users
+                  explicitly saying about their pain points or desires? What are
+                  their unmet needs or confusions?
+                </p>
+
+                <h5><strong>UX/UI Audits &amp; Best Practices</strong></h5>
+                <p>
+                  Conduct an expert review of your current interface, comparing
+                  it against established usability heuristics and industry best
+                  practices.
+                </p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>Identifying cluttered layouts</li>
+                  <li>Unclear calls-to-action</li>
+                  <li>Inconsistent design elements</li>
+                  <li>Non-responsive sections</li>
+                </ul>
+
+                <p>
+                  <strong>Actionable Questions:</strong> Is our design intuitive
+                  and easy to use? Are we following modern web standards?
+                </p>
+
+                <h5><strong>Competitive Analysis</strong></h5>
+                <p>
+                  Study what direct and indirect competitors are doing well (or
+                  poorly) on their sites and in their user experiences.
+                </p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    Observing new features, design patterns, or messaging
+                    strategies adopted by industry leaders
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Actionable Questions:</strong> What competitive
+                  advantages or disadvantages do we have in our user experience?
+                  Are there successful patterns we could adapt or improve upon?
+                </p>
+
+                <h5>
+                  <strong>Stakeholder Requests &amp; Business Goals</strong>
+                </h5>
+                <p>
+                  Translate broader business objectives and specific requests
+                  from internal teams (e.g., Marketing, Product, Sales) into
+                  testable opportunities. Always dig deeper into vague requests
+                  to ensure the problem or opportunity is clearly defined.
+                </p>
+
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>
+                    A request to drive more sign-ups for a specific product
+                  </li>
+                  <li>To improve engagement with a new feature</li>
+                </ul>
+
+                <p><strong>How to refine stakeholder requests:</strong></p>
+                <ul>
+                  <li>Stakeholder says: "Improve the homepage"</li>
+                  <li>
+                    You ask: "What specific outcome are we trying to achieve?
+                    How will we measure success? What evidence suggests the
+                    homepage needs improvement?"
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Actionable Questions:</strong> What are the key
+                  business metrics we need to move? Is the problem or
+                  opportunity presented by the stakeholder clear and
+                  quantifiable? What data supports this as a priority?
+                </p>
+
+                <h5><strong>Capturing and Managing Ideas</strong></h5>
+                <p>
+                  <strong>Documentation:</strong> Capture all ideas in a
+                  centralised location (like an ideas board, Trello, or Jira)
+                  with the source and supporting data. At our company, we use a
+                  Microsoft Form for idea submissions and manage our experiment
+                  backlog in Jira, but you could adapt this to any project
+                  management tool (Asana, Notion, etc.).
+                </p>
+
+                <p>
+                  <strong>Cross-validation:</strong> The strongest experiment
+                  ideas often come from multiple sources pointing to the same
+                  problem (e.g., data shows high bounce rate + user research
+                  reveals confusion about value proposition).
+                </p>
+
+                <p>
+                  <strong>Prioritisation:</strong> After identifying multiple
+                  opportunities, consider both potential impact and
+                  implementation effort to decide which to tackle first.
+                </p>
+
                 <div class="info-banner">
                   <span class="material-icons-round info-banner-icon"
                     >info</span
@@ -71,122 +562,14 @@
                     </p>
                   </div>
                 </div>
-
-                <h4>Where do experiment ideas come from?</h4>
-                <p>
-                  Experiment ideas are the fuel for our optimisation efforts.
-                  They can stem from various sources, each providing unique
-                  insights into user behavior, business needs, and potential
-                  improvements.
-                </p>
-
-                <h5><strong>Data Analysis</strong></h5>
-                <p>
-                  Dive into quantitative data from tools like Google Analytics
-                  or Contentsquare to uncover areas of friction, unexpected user
-                  behavior, or underperforming sections.
-                </p>
-                <p><strong>Examples:</strong></p>
-                <ul>
-                  <li>
-                    High bounce rates on key pages (e.g., your homepage has a
-                    52.8% bounce rate)
-                  </li>
-                  <li>
-                    Low scroll rates (e.g., only 27.3% of users scroll below the
-                    fold on your homepage)
-                  </li>
-                  <li>
-                    Unexpected drop-offs in funnels (e.g., 14.9% conversion from
-                    Home to Quote ARHI Welcome)
-                  </li>
-                </ul>
-                <p>
-                  <strong>Actionable Questions:</strong> Where are users getting
-                  stuck? What are they looking for but not finding? Are there
-                  any significant deviations from expected user flows?
-                </p>
-
-                <h5><strong>User Research &amp; Feedback</strong></h5>
-                <p>
-                  Leverage qualitative insights to understand the "why" behind
-                  user behavior. This includes direct feedback and observations.
-                </p>
-                <p><strong>Examples:</strong></p>
-                <ul>
-                  <li>User interviews</li>
-                  <li>Usability testing sessions</li>
-                  <li>Customer support inquiries</li>
-                  <li>Direct feedback forms and surveys</li>
-                </ul>
-                <p>
-                  <strong>Actionable Questions:</strong> What are users
-                  explicitly saying about their pain points or desires? What are
-                  their unmet needs or confusions?
-                </p>
-
-                <h5><strong>UX/UI Audits &amp; Best Practices</strong></h5>
-                <p>
-                  Conduct an expert review of your current interface, comparing
-                  it against established usability heuristics and industry best
-                  practices.
-                </p>
-                <p><strong>Examples:</strong></p>
-                <ul>
-                  <li>Identifying cluttered layouts</li>
-                  <li>Unclear calls-to-action</li>
-                  <li>Inconsistent design elements</li>
-                  <li>Non-responsive sections</li>
-                </ul>
-                <p>
-                  <strong>Actionable Questions:</strong> Is our design intuitive
-                  and easy to use? Are we following modern web standards?
-                </p>
-
-                <h5><strong>Competitive Analysis</strong></h5>
-                <p>
-                  Study what direct and indirect competitors are doing well (or
-                  poorly) on their sites and in their user experiences.
-                </p>
-                <p><strong>Examples:</strong></p>
-                <ul>
-                  <li>
-                    Observing new features, design patterns, or messaging
-                    strategies adopted by industry leaders
-                  </li>
-                </ul>
-                <p>
-                  <strong>Actionable Questions:</strong> What competitive
-                  advantages or disadvantages do we have in our user experience?
-                  Are there successful patterns we could adapt or improve upon?
-                </p>
-
-                <h5>
-                  <strong>Stakeholder Requests &amp; Business Goals</strong>
-                </h5>
-                <p>
-                  Translate broader business objectives and specific requests
-                  from internal teams (e.g., Marketing, Product, Sales) into
-                  testable opportunities. Ensure the problem or opportunity is
-                  clearly defined.
-                </p>
-                <p><strong>Examples:</strong></p>
-                <ul>
-                  <li>
-                    A request to drive more sign-ups for a specific product
-                  </li>
-                  <li>To improve engagement with a new feature</li>
-                </ul>
-                <p>
-                  <strong>Actionable Questions:</strong> What are the key
-                  business metrics we need to move? Is the problem or
-                  opportunity presented by the stakeholder clear and
-                  quantifiable?
-                </p>
               </div>
             </div>
 
-            <div class="row" data-row="brainstorm">
+            <div
+              class="row technical-row"
+              data-row="brainstorm"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">psychology</span>
                 <h3>Brainstorm Solutions</h3>
@@ -195,14 +578,141 @@
                 >
               </div>
               <div class="row-content">
+                <h4>Generate Ideas That Address Your Problem</h4>
                 <p>
-                  Generate multiple potential solutions to address the
-                  identified problem or opportunity.
+                  Once you've identified a clear problem or opportunity, it's
+                  time to brainstorm potential solutions. The key is generating
+                  diverse ideas that actually solve the user problem, not just
+                  implementing changes for the sake of change.
+                </p>
+
+                <h5><strong>Basic Brainstorming Guidelines</strong></h5>
+
+                <h6>
+                  <strong>Focus on the Problem, Not Solutions You Like</strong>
+                </h6>
+                <p>Remember your "why":</p>
+                <ul>
+                  <li>
+                    Always tie ideas back to the specific problem you identified
+                  </li>
+                  <li>
+                    Ask: "How does this solution address our users' pain point?"
+                  </li>
+                  <li>
+                    Avoid solutions based on personal preferences or what
+                    competitors are doing
+                  </li>
+                </ul>
+
+                <h6><strong>Encourage Diverse Thinking</strong></h6>
+                <p>Create the right environment:</p>
+                <ul>
+                  <li>Welcome all ideas, regardless of size or feasibility</li>
+                  <li>
+                    Don't dismiss ideas because "we tried that before" - context
+                    and timing matter
+                  </li>
+                  <li>
+                    Build on others' suggestions rather than shutting them down
+                  </li>
+                  <li>Separate idea generation from idea evaluation</li>
+                </ul>
+
+                <h6><strong>Generate Multiple Options</strong></h6>
+                <p>Don't stop at the first idea:</p>
+                <ul>
+                  <li>
+                    Aim for at least 5-10 different approaches to the same
+                    problem
+                  </li>
+                  <li>
+                    Consider small tweaks (button text, colours) and larger
+                    changes (layout redesigns)
+                  </li>
+                  <li>Think about different user scenarios and contexts</li>
+                  <li>
+                    Look for inspiration from other industries, not just direct
+                    competitors
+                  </li>
+                </ul>
+
+                <h6><strong>Validate Ideas Against Your Problem</strong></h6>
+                <p>Before moving forward, check:</p>
+                <ul>
+                  <li>
+                    Does this idea directly address the problem we identified?
+                  </li>
+                  <li>
+                    Can we create a clear hypothesis about why this would work?
+                  </li>
+                  <li>
+                    Will we be able to measure if this solution is successful?
+                  </li>
+                  <li>
+                    Is this solving a real user need or just our own
+                    assumptions?
+                  </li>
+                </ul>
+
+                <hr />
+
+                <h5><strong>Common Pitfalls to Avoid</strong></h5>
+                <ul>
+                  <li>
+                    <strong>Assumption-based ideas:</strong> "Users will love
+                    this because I do"
+                  </li>
+                  <li>
+                    <strong>Competitor copying:</strong> "Company X does this,
+                    so we should too"
+                  </li>
+                  <li>
+                    <strong>Feature creep:</strong> "Let's test five changes at
+                    once"
+                  </li>
+                  <li>
+                    <strong>Past bias:</strong> "We tried something similar
+                    before and it didn't work"
+                  </li>
+                  <li>
+                    <strong>Shiny object syndrome:</strong> "This looks
+                    modern/trendy"
+                  </li>
+                </ul>
+
+                <h5><strong>Moving from Ideas to Tests</strong></h5>
+                <p>
+                  Capture your ideas in a centralised location (ideas board,
+                  document, etc.) with:
+                </p>
+                <ul>
+                  <li>Brief description of the solution</li>
+                  <li>Which problem it addresses</li>
+                  <li>Rough feasibility (small, medium, large change)</li>
+                </ul>
+
+                <p><strong>Prioritise based on:</strong></p>
+                <ul>
+                  <li>Potential impact on your users and business metrics</li>
+                  <li>Effort required to implement and test</li>
+                  <li>Alignment with current business goals</li>
+                  <li>Confidence level in your hypothesis</li>
+                </ul>
+
+                <p>
+                  <strong>Next step:</strong> Once you have prioritised your
+                  ideas, validate your current data to ensure you have accurate
+                  baselines for testing.
                 </p>
               </div>
             </div>
 
-            <div class="row" data-row="validate-data">
+            <div
+              class="row technical-row"
+              data-row="validate-data"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">fact_check</span>
                 <h3>Validate Current Data</h3>
@@ -218,7 +728,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="hypothesis">
+            <div
+              class="row technical-row"
+              data-row="hypothesis"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">science</span>
                 <h3>Formulate Hypothesis</h3>
@@ -234,7 +748,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="primary-metric">
+            <div
+              class="row technical-row"
+              data-row="primary-metric"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">flag</span>
                 <h3>Define Primary Metric</h3>
@@ -250,7 +768,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="secondary-metrics">
+            <div
+              class="row technical-row"
+              data-row="secondary-metrics"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">analytics</span>
                 <h3>Define Secondary Metrics</h3>
@@ -266,7 +788,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="traffic-duration">
+            <div
+              class="row technical-row"
+              data-row="traffic-duration"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">schedule</span>
                 <h3>Calculate Traffic & Duration</h3>
@@ -282,7 +808,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="design-assets">
+            <div
+              class="row technical-row"
+              data-row="design-assets"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">palette</span>
                 <h3>Gather Design Assets</h3>
@@ -308,7 +838,42 @@
             <span class="material-icons-round expand-icon">expand_more</span>
           </div>
           <div class="section-content">
-            <div class="row" data-row="create-experiment">
+            <div
+              class="row basic-row"
+              data-row="setup-basics"
+              data-guidance="basic"
+            >
+              <div class="row-header">
+                <span class="material-icons-round row-icon">build</span>
+                <h3>Setup Basics</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <h4>Experiment Setup Fundamentals</h4>
+                <p>
+                  Learn the essential steps for setting up your A/B tests
+                  properly.
+                </p>
+                <ul>
+                  <li>Basic experiment configuration</li>
+                  <li>Simple targeting and audience selection</li>
+                  <li>Essential quality assurance checks</li>
+                  <li>Basic launch preparation</li>
+                </ul>
+                <p>
+                  <strong>Next step:</strong> Once you've mastered the basics,
+                  explore advanced setup techniques.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="row technical-row"
+              data-row="create-experiment"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">add_circle</span>
                 <h3>Create Experiment</h3>
@@ -321,7 +886,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="implement-variations">
+            <div
+              class="row technical-row"
+              data-row="implement-variations"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">code</span>
                 <h3>Implement Variations</h3>
@@ -337,7 +906,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="page-targeting">
+            <div
+              class="row technical-row"
+              data-row="page-targeting"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">gps_fixed</span>
                 <h3>Configure Page Targeting</h3>
@@ -353,7 +926,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="audience-traffic">
+            <div
+              class="row technical-row"
+              data-row="audience-traffic"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">people</span>
                 <h3>Set Audience & Traffic</h3>
@@ -369,7 +946,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="add-metrics">
+            <div
+              class="row technical-row"
+              data-row="add-metrics"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">track_changes</span>
                 <h3>Add Metrics/Goals</h3>
@@ -385,7 +966,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="qa">
+            <div
+              class="row technical-row"
+              data-row="qa"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">bug_report</span>
                 <h3>Thorough QA</h3>
@@ -411,7 +996,41 @@
             <span class="material-icons-round expand-icon">expand_more</span>
           </div>
           <div class="section-content">
-            <div class="row" data-row="launch-experiment">
+            <div
+              class="row basic-row"
+              data-row="launch-basics"
+              data-guidance="basic"
+            >
+              <div class="row-header">
+                <span class="material-icons-round row-icon">play_arrow</span>
+                <h3>Launch Basics</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <h4>Getting Your Test Live</h4>
+                <p>
+                  Learn the fundamentals of launching and monitoring A/B tests.
+                </p>
+                <ul>
+                  <li>Simple launch procedures</li>
+                  <li>Basic monitoring techniques</li>
+                  <li>Essential performance checks</li>
+                  <li>When to stop or continue testing</li>
+                </ul>
+                <p>
+                  <strong>Next step:</strong> Once comfortable with basic
+                  launches, explore advanced monitoring strategies.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="row technical-row"
+              data-row="launch-experiment"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">play_arrow</span>
                 <h3>Launch Experiment</h3>
@@ -427,7 +1046,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="monitor-performance">
+            <div
+              class="row technical-row"
+              data-row="monitor-performance"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">monitor</span>
                 <h3>Monitor Performance</h3>
@@ -443,7 +1066,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="avoid-peeking">
+            <div
+              class="row technical-row"
+              data-row="avoid-peeking"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon"
                   >visibility_off</span
@@ -471,7 +1098,39 @@
             <span class="material-icons-round expand-icon">expand_more</span>
           </div>
           <div class="section-content">
-            <div class="row" data-row="analyze-results">
+            <div
+              class="row basic-row"
+              data-row="analysis-basics"
+              data-guidance="basic"
+            >
+              <div class="row-header">
+                <span class="material-icons-round row-icon">analytics</span>
+                <h3>Analysis Basics</h3>
+                <span class="material-icons-round expand-icon"
+                  >expand_more</span
+                >
+              </div>
+              <div class="row-content">
+                <h4>Understanding Your Results</h4>
+                <p>Learn how to interpret and act on your A/B test results.</p>
+                <ul>
+                  <li>Reading basic test results</li>
+                  <li>Understanding statistical significance</li>
+                  <li>Making simple go/no-go decisions</li>
+                  <li>Documenting key learnings</li>
+                </ul>
+                <p>
+                  <strong>Next step:</strong> Once you understand the basics,
+                  dive into advanced analysis techniques.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="row technical-row"
+              data-row="analyze-results"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">bar_chart</span>
                 <h3>Analyze Results</h3>
@@ -487,7 +1146,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="interpret-findings">
+            <div
+              class="row technical-row"
+              data-row="interpret-findings"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">insights</span>
                 <h3>Interpret Findings</h3>
@@ -503,7 +1166,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="make-decision">
+            <div
+              class="row technical-row"
+              data-row="make-decision"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">gavel</span>
                 <h3>Make Decision</h3>
@@ -519,7 +1186,11 @@
               </div>
             </div>
 
-            <div class="row" data-row="document-learnings">
+            <div
+              class="row technical-row"
+              data-row="document-learnings"
+              data-guidance="technical"
+            >
               <div class="row-header">
                 <span class="material-icons-round row-icon">library_books</span>
                 <h3>Document Learnings</h3>
@@ -537,6 +1208,42 @@
           </div>
         </section>
       </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="guidance-info" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <div class="modal-header">
+          <h3 id="modal-title">Guidance Level Information</h3>
+          <button class="modal-close" aria-label="Close modal">
+            <span class="material-icons-round">close</span>
+          </button>
+        </div>
+        <div class="modal-content">
+          <p id="modal-description">
+            Choose your preferred level of detail for the A/B testing guidance:
+          </p>
+          <ul>
+            <li>
+              <strong>Basic:</strong> Essential steps and key concepts for
+              getting started with A/B testing
+            </li>
+            <li>
+              <strong>In-depth:</strong> Advanced guidance including statistical
+              considerations, implementation details, and advanced methodologies
+            </li>
+          </ul>
+          <p>
+            You can switch between levels at any time to match your expertise
+            and needs.
+          </p>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

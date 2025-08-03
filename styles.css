@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Figtree", sans-serif;
   background-color: #ffffff;
   color: #000000;
   line-height: 1.6;
@@ -63,7 +63,6 @@ header {
 .main-section {
   margin-bottom: 30px;
   border: 2px solid #000000;
-  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -115,7 +114,7 @@ header {
 }
 
 .main-section.expanded .section-content {
-  max-height: 2000px;
+  max-height: 10000px;
 }
 
 /* Row Styles */
@@ -211,6 +210,14 @@ header {
   margin-top: 16px;
 }
 
+.row-content h6 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
 .row-content strong {
   font-weight: 600;
   color: #000000;
@@ -230,6 +237,261 @@ header {
 
 .row-content li:last-child {
   margin-bottom: 0;
+}
+
+.row-content hr {
+  border: none;
+  border-top: 2px solid #000000;
+  margin: 24px 0;
+}
+
+.row-content ol {
+  margin: 8px 0 12px 0;
+  padding-left: 20px;
+}
+
+.row-content ol li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 6px;
+}
+
+/* Radio Button Styles */
+.radio-group {
+  margin: 16px 0;
+}
+
+.radio-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0;
+  display: block;
+}
+
+.radio-options {
+  display: flex;
+  gap: 0;
+  border: 2px solid #000000;
+  border-radius: 0;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.radio-option {
+  position: relative;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-option .radio-label {
+  display: block;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  color: #000000;
+  border-right: 2px solid #000000;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.radio-option:last-child .radio-label {
+  border-right: none;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.radio-option input[type="radio"]:focus + .radio-label {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+.radio-option .radio-label:hover {
+  background-color: #f0f0f0;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label:hover {
+  background-color: #333333;
+}
+
+/* Guidance Level Toggle - Mutual Exclusivity */
+/* By default, show basic rows and hide technical (in-depth) rows */
+.basic-row {
+  display: block;
+}
+
+.technical-row {
+  display: none;
+}
+
+/* When in-depth mode is active, show technical rows and hide basic rows */
+body.show-technical .basic-row {
+  display: none;
+}
+
+body.show-technical .technical-row {
+  display: block;
+}
+
+/* Label with Info Icon Styles */
+.label-with-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.info-icon-btn {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: #666666;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon-btn:hover {
+  color: #000000;
+}
+
+.info-icon-btn:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.info-icon-btn .material-icons-round {
+  font-size: 18px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 2px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+.modal-close:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.modal-close .material-icons-round {
+  font-size: 20px;
+}
+
+.modal-content {
+  padding: 24px;
+}
+
+.modal-content p {
+  margin: 0 0 16px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.modal-content p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-content ul {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.modal-content li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+.modal-content li:last-child {
+  margin-bottom: 0;
+}
+
+.modal-content strong {
+  font-weight: 600;
+  color: #000000;
 }
 
 /* Info Banner Styles */
@@ -347,8 +609,41 @@ header {
     font-size: 0.95rem;
   }
 
+  .row-content h6 {
+    font-size: 0.9rem;
+  }
+
   .row-content li {
     font-size: 0.9rem;
+  }
+
+  .row-content ol li {
+    font-size: 0.9rem;
+  }
+
+  .row-content hr {
+    margin: 20px 0;
+  }
+
+  .radio-option .radio-label {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    width: 95%;
+  }
+
+  .modal-header {
+    padding: 16px 20px;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    padding: 20px;
   }
 
   .info-banner {
@@ -431,8 +726,47 @@ header {
     font-size: 0.9rem;
   }
 
+  .row-content h6 {
+    font-size: 0.85rem;
+  }
+
   .row-content li {
     font-size: 0.85rem;
+  }
+
+  .row-content ol li {
+    font-size: 0.85rem;
+  }
+
+  .row-content hr {
+    margin: 16px 0;
+  }
+
+  .radio-option .radio-label {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .modal {
+    width: 98%;
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    padding: 14px 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-content p,
+  .modal-content li {
+    font-size: 0.9rem;
   }
 
   .info-banner {
