@@ -85,6 +85,19 @@ function toggleSection(section) {
     // Expand section
     section.classList.add("expanded");
     header.setAttribute("aria-expanded", "true");
+
+    // Smooth scroll to section if it's below the fold
+    setTimeout(() => {
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      if (rect.top < 0 || rect.bottom > viewportHeight) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 300);
   }
 }
 
@@ -110,6 +123,19 @@ function toggleRow(row) {
     if (parentSection && !parentSection.classList.contains("expanded")) {
       toggleSection(parentSection);
     }
+
+    // Smooth scroll to row if needed
+    setTimeout(() => {
+      const rect = row.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      if (rect.bottom > viewportHeight - 50) {
+        row.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
+    }, 300);
   }
 }
 
